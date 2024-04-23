@@ -1,6 +1,5 @@
 defmodule PentoWeb.ProductLive.FormComponent do
   use PentoWeb, :live_component
-
   alias Pento.Catalog
 
   @impl true
@@ -11,7 +10,7 @@ defmodule PentoWeb.ProductLive.FormComponent do
         <%= @title %>
         <:subtitle>Use this form to manage product records in your database.</:subtitle>
       </.header>
-
+      <h1> <%= @title %> </h1>
       <.simple_form
         for={@form}
         id="product-form"
@@ -20,7 +19,7 @@ defmodule PentoWeb.ProductLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:description]} type="text" label="description" />
+        <.input field={@form[:description]} type="text" label="Description" />
         <.input field={@form[:unit_price]} type="number" label="Unit price" step="any" />
         <.input field={@form[:sku]} type="number" label="Sku" />
         <:actions>

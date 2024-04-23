@@ -5,9 +5,23 @@ defmodule PentoWeb.ProductLive.Index do
   alias Pento.Catalog.Product
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :products, Catalog.list_products())}
-  end
+  # def mount(_params, _session, socket) do
+  #   {:ok,   stream(socket, :products, Catalog.list_products())}
+  # end
+    def mount(_params, _session, socket) do
+    {:ok,
+    socket
+     |> assign(:greeting, "Welcome to Pento!")
+     |> stream(:products, Catalog.list_products())}
+   end
+
+  #assign: nhập giá trị cho các socket
+  #stream: tạo một stream để theo dõi các sự kiện
+  #stream(socket, :products, Catalog.list_products()): tạo một stream để theo dõi các sự kiện trên danh sách sản phẩm
+  #handle_params: xử lý các tham số truyền vào
+  #apply_action: áp dụng hành động cho socket
+  #handle_info: xử lý thông tin
+  #handle_event: xử lý sự kiện
 
   @impl true
   def handle_params(params, _url, socket) do
