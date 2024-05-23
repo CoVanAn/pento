@@ -33,10 +33,18 @@ defmodule PentoWeb.DemographicLive.Form do
   def handle_event("save", %{"demographic" => demographic_params}, socket) do
     params = params_with_user_id(demographic_params, socket)
     {:noreply, save_demographic(socket, params)}
-    IO.puts("Handling 'save' event and saving demographic record...")
-    IO.inspect(demographic_params)
-    {:noreply, socket}
+
   end
+
+  def handle_event("validate", %{"demographic" => demographic_params}, socket) do
+    changeset =
+      %Demographic{}
+      |> Demographic.changeset(demographic_params)
+      |> Map.put(:action, :validate)
+
+    {:noreply, assign_form(socket, changeset)}
+  end
+
 
   def params_with_user_id(params, %{assigns: %{current_user: current_user}}) do
     params |> Map.put("user_id", current_user.id)
@@ -53,14 +61,5 @@ defmodule PentoWeb.DemographicLive.Form do
     end
   end
 
-  def handle_info({:created_demographic, demographic}, socket) do
-    {:noreply, handle_demographic_created(socket, demographic)}
-  end
-
-  def handle_demographic_created(socket, demographic) do
-    socket
-    |> put_flash(:info, "Demographic created successfully")
-    |> assign(:demographic, demographic)
-  end
 
 end
