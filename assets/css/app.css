@@ -63,15 +63,15 @@
 
 .exc-legend text {
     fill: grey;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     stroke: none;
 }
 
 .exc-title {
     fill: darkslategray;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     stroke: none;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .exc-subtitle {
@@ -106,6 +106,8 @@
 
 #survey-results-component {
     border: 1px solid;
+    padding: 20px;
+
 }
 
 #survey-results-chart {
