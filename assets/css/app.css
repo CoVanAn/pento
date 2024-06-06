@@ -9,6 +9,7 @@
     border: 1px solid #888;
     width: 80%;
     margin-bottom: 20px;
+    /* display: flex; */
 }
 
 .survey-component-container label {
@@ -17,6 +18,8 @@
 
 .survey-component-container input {
     margin-right: 10px;
+    border-radius: 10px;
+    /* display: flex; */
 }
 
 .survey-component-container select {
@@ -104,10 +107,15 @@
     padding: 20px;
 }
 
-#survey-results-component {
+#survey-results-component  {
     border: 1px solid;
     padding: 20px;
+    border-radius: 10px;
+}
 
+#survey-results-component .container{
+    display: flex;
+    justify-content: space-between;
 }
 
 #survey-results-chart {
@@ -119,19 +127,22 @@
     padding-left: 2000px;
 }
 
-.user-activity-component, .product-sales-component {
+.user-activity-component,
+.product-sales-component {
     border: 1px solid;
     padding: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.user-activity-component h2, h3 {
+.user-activity-component h2,
+h3 {
     background: rebeccapurple;
     color: white;
     padding: 10px;
 }
 
-.user-activity-component ul, p {
+.user-activity-component ul,
+p {
     padding-left: 20px;
 }

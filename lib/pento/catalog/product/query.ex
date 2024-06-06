@@ -84,6 +84,49 @@ defmodule Pento.Catalog.Product.Query do
     query
   end
 
+  #gender
+
+  def filter_by_gender_group(query \\ base(), filter) do
+    query |> apply_gender_group_filter(filter)
+  end
+
+  defp apply_gender_group_filter(query, "male") do
+    query
+    |> where(
+      [p, r, u, d],
+      d.gender == "male"
+    )
+  end
+
+  defp apply_gender_group_filter(query, "female") do
+    query
+    |> where(
+      [p, r, u, d],
+      d.gender == "female"
+    )
+  end
+
+  defp apply_gender_group_filter(query, "other") do
+    query
+    |> where(
+      [p, r, u, d],
+      d.gender == "other"
+    )
+  end
+
+  defp apply_gender_group_filter(query, "prefer not to say") do
+    query
+    |> where(
+      [p, r, u, d],
+      d.gender == "perfer not to say"
+    )
+  end
+
+  defp apply_gender_group_filter(query, _filter) do
+    query
+  end
+
+
   def with_zero_ratings(query \\ base()) do
     query|> select([p], {p.name, 0})
   end
