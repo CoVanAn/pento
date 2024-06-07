@@ -8,6 +8,9 @@ defmodule PentoWeb.SurveyLive do
   # alias PentoWeb.RatingLive.Show
   alias PentoWeb.RatingLive
 
+  alias PentoWeb.Endpoint
+  @survey_results_topic "survey_results"
+
   # use CoreComponents.table
 
   def mount(_params, _session, socket) do
@@ -44,6 +47,8 @@ defmodule PentoWeb.SurveyLive do
         update_product,
         product_index
       ) do
+    Endpoint.broadcast(@survey_results_topic, "rating_created", %{})
+
     socket
     |> put_flash(:info, "Rating created successfully")
     |> assign(:products, List.replace_at(products, product_index, update_product))

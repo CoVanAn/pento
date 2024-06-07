@@ -4,6 +4,7 @@ defmodule Pento.Catalog do
   """
 
   import Ecto.Query, warn: false
+  alias Pento.Survey.Rating
   alias Pento.Repo
 
   alias Pento.Catalog.Product
@@ -86,7 +87,9 @@ defmodule Pento.Catalog do
 
   """
   def delete_product(%Product{} = product) do
-    Repo.delete(product)
+    Repo.delete(from(r in Rating, where: r.product_id == ^product.id))
+
+    # Repo.delete(product)
   end
 
   @doc """
