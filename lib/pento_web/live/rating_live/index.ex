@@ -37,7 +37,7 @@ defmodule PentoWeb.RatingLive.Index do
     </div>
 
     <%= if rating = List.first(@product.ratings) do %>
-      <Show.stars rating={rating} product={@product} />
+      <Show.stars rating={rating}/>
     <% else %>
       <div>
         <.live_component module={RatingLive.Form}
