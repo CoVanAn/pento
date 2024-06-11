@@ -20,7 +20,7 @@ defmodule PentoWeb.Presence do
   end
 
   defp extract_product_with_users({product, %{metas: metas}}) do
-    {product.name, users_from_meta_list(metas)}
+    {product, users_from_meta_list(metas)}
   end
 
   defp users_from_meta_list(metas_list) do

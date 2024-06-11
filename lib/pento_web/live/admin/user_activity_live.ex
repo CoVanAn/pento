@@ -1,5 +1,5 @@
 defmodule PentoWeb.Admin.UserActivityLive do
-  use PentoWeb, :live_view
+  use PentoWeb, :live_component
   alias PentoWeb.Presence
 
   def update(_assigns, socket) do

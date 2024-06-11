@@ -7,9 +7,7 @@
     id={@survey_results_component_id}
 />
 
-<%!-- <.live_component
+<.live_component
     module={PentoWeb.Admin.UserActivityLive}
     id={@user_activity_component_id}
-/> --%>
-
-<%= live_render @socket, PentoWeb.Admin.UserActivityLive, id: "user-activity" %>
+/>
